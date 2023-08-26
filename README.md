@@ -1,5 +1,7 @@
 # Resin Printing Guide
 
+This is a complete guide for everything you need to know for resin printing. Most of it is based on memory so my apologies if something critical is missing. This may look like a lot of information, because it is... but just know that I did not learn this in one day. It took me many weeks of experimenting to understand the nuances related to resin printing. I have a ton of experience with 3d modeling programs and slicers so this sped up the learning curve. I'm hoping relaying some of this knowledge will do the same for you and make resin printing a more enjoyable experience.
+
 ### Modeling Software
 
 - [Lychee Slicer](https://mango3d.io/downloads/)
@@ -147,7 +149,7 @@ I'll cover this first because you will end up leaving a good amount of resin in 
     1. Broken bits of cured resin left over from print failure. Your build plate will crush these into your screen and crack it. All of the resin in the vat should be liquid. If it isn't it's best to filter the resin back into the bottle, clean the vat, and re-pour.
     1. Resin pigment will settle into the bottom of the vat after it hasn't been used for a while. This pigment will cover the fep ( plastic sheet at the bottom of the vat ) and prevent light from passing through. Stir this as much as possible.
 
-There is an alternative technique you can use here. After giving the resin a good stir you can use the 'exposure check' function to light up the whole screen for around 10 seconds. This will cure the bottom layer of the build plate and then you can peel it out in one whole sheet. A bonus tip is to throw a leftover support in the corner so it adheres to that and you have something to grab and pull on.
+There is an alternative technique you can use here. After giving the resin a good stir you can use the 'exposure check' function to light up the whole screen for around 10 seconds. This will cure the bottom layer of the build plate and then you can peel it out in one whole sheet. A bonus tip is to throw a leftover support in the corner so it adheres to that and you have something to grab and pull on. If you have a print failure, use this technique to ensure any broken off / cured resin from the failed print is removed from the vat.
 
 It's generally best to keep your vat about half to three quarters full. Avoid filling it up to the max line because things can get messy. You can always slowly pour a bit of resin in there mid print if needed.
 
@@ -194,12 +196,141 @@ Before we really get into it we should cover file formats. Typically when you th
 
 ### Resin Calibration
 
-Ok, with all of that out of the way we can start to talk about calibrating your resin. This involves everything above plus setting up your first prints and getting familiar with the slicer.
+Ok, with all of that out of the way we can start to talk about calibrating your resin. This involves everything above plus setting up your first prints and getting familiar with the slicer. Keep in mind exposure settings are not only color, resin type dependent, but temperature dependent as well. The ambient temperature of your environment will dictate exposure times. You will find that in colder weather ( < 70F ) a bit of time will need to be added as the resin is more viscous and takes longer to cure.
 
-First you'll want to download [this model](https://www.dl.dropboxusercontent.com/s/tnp8dqcnkpg089s/MonoCalibrationMatrix.stl.zip?dl=0) and have Lychee installed on your computer.
+First you'll want to download [this model](https://github.com/kevinchatham/ResinPrintingGuide/blob/main/Calibration.stl) and have Lychee installed on your computer. Download button is in the top right of the page preview.
 
 What we plan to do here is print several of these at different exposure times. Then we compare all of the results to select which time produced the best looking model. Then we make note of the exposure time for that given resin and color.
 
 Here is a intro video to explain the basics of Lychee. [link](https://www.youtube.com/watch?v=sHp74c5dt2I)
 
-Import the model above and arrange it flat in the center of the build plate. No supports are required. Normally you would want this print to be angled on all axises but for this print we will break those rules.
+Import the model above and arrange it flat in the center of the build plate. No supports are required. Normally you would want this print to be angled on all axises but for this print we will break those rules. 
+
+Example
+![./Images/Calibration_Preview.png)](./Images/Calibration_Preview.png)
+
+From there go straight to the Export tab and select your Printer from the menu on the right. Do note that you may have to add a new printer. This is a fairly straightforward process where you follow the dialog to select your printer from the list. It will also come with a default printing profile which we will optimize.
+
+After some configuration you should be able to see a menu like this where you will select Edit and end up on the properties screen.
+
+Export Tab
+![./Images/Calibration_Preview_0.png)](./Images/Calibration_Preview_0.png)
+
+Printer / Resin Management Dialog
+![./Images/Calibration_Preview_1.png)](./Images/Calibration_Preview_1.png)
+
+Printer / Resin Management Dialog
+![./Images/Resin_Dialog.png)](./Images/Resin_Dialog.png)
+
+At this point configure your resin settings with the same ones I am using above. I have found this to be very reasonable for grey resin. Let's go over this one by one.
+
+#### Burn In Layers
+
+This is how many layers your printer will use to 'burn' the first layers to the build plate. The extra time here ensures there is a strong bond between the resin and build plate.
+
+Number of Layers: 4
+Exposure Time: 45 seconds
+
+#### Speed
+
+After each layer the bed will left / retract at at this speed. Lift Speed is the speed that the plate will raise and Retract Speed will control how fast it will lower.
+
+Lift Speed: 1 mm/s
+Retract Speed: 3mm/s
+
+#### Normal Layers
+
+This is where the difference happens. Most adjustments you make will be here.
+
+Layer thickness: .05mm
+Light-off delay: 1 second
+    - This waits before exposure on each layer to ensure resin has had time to settle.
+Exposure Time: 1.5 seconds
+    - Arguably the most important setting. For this test we will print models incrementing by a quarter of a second, starting with 1.5.
+    - To clarify this means you will want to make calibration prints for 1, 1.25, 1.5, 1.75, and 2 seconds of exposure time. When you understand which quarter works better you can split the difference and really hone in the time. I will say that .05 to .1 seconds is enough to make a noticeable difference.
+Lift Distance: 3mm
+    - This is how far the build plate will lift off of the fep between each layer.
+    - Do not go lower than 3mm. Going any higher just increases print time with no benefit.
+    - For reference a print with 6mm lift height will take roughly twice as long as one with a 3mm print height.
+
+Set your resin price, for cost estimates, and everything else here is really optional and you probably won't find a need to use it.
+
+Click Ok / X to get back to the Export preview and select "Export Slices to file" which will prepare your model. While you're here go ahead and export several different exposure times and save them all to your USB Stick. Then go print and clean each one! This gives you plenty of practice before wasting resources on larger prints.
+
+#### Results
+
+Mark and closely compare each print to understand which exposure times are best for your environment. Holes should be correctly sized, all lines should be crisp and clean. You should be able to see the finest details. Split the quarters as necessary and keep at it until you're happy with the result. The better this calibration print is the better all of your prints will be!
+
+### Arranging and Supporting
+
+In the calibration above we skipped over some of the most important steps of slicing any 3d model. Arranging and Supporting. Models will be arranged in the 'Layout' tab of Lychee which you have some experience with at this point. Here we will cover more detail and also cover the 'Prepare' tab.
+
+#### Arrange
+
+In this tab you will orient the model on the build plate to prepare for the next steps. Always align your model centered with the build plate. If you select your model and click the Arrange tool, you will see a button to Arrange All. This does the job of arranging one or more models around the center of the build plate.
+
+Along with this about 5mm of distance will be added to the Z axis to lift the model off of the build plate. The goal is to suspend the model by the supports so it is never touching the build plate directly. Allowing the model to touch the build plate will create a 'elephants foot' on the bottom layers making them larger and flared out compared to the rest of the print. This is mainly because of the extra exposure time where the resin slightly expands and increases the dimensions.
+
+Going on to the rotate tool, just understand it's a bit of an art. There are some general guidelines, but generally you must experiment and learn the effects of model rotation as you go. The basics of it are that you want the models pretty side to be facing away from the build plate. X and Y axises should both be rotated around 30 degrees ideally. This points the model upwards at an offset angle so that the minimum amount of surface area is exposed at any given time. There is an auto rotate tool but it doesn't always do what you want so learning how to do this manually is ideal. Here's an example of a properly rotated model.
+
+Front
+![./Images/Front.png](./Images/Front.png)
+
+Right
+![./Images/Right.png](./Images/Right.png)
+
+Top
+![./Images/Top.png](./Images/Top.png)
+
+Perspective
+![./Images/Perspective.png](./Images/Perspective.png)
+
+#### Prepare
+
+Moving to the 'Prepare' tab we can start to set up rafts, hollowing, and support. First you will note the yellow areas which need to be supported.
+
+![./Images/Support_Prepare.png](./Images/Support_Prepare.png)
+
+Thankfully we do not have to place these manually. We'll come back to it in a moment but let's set up a raft and hollowing first.
+
+Select you model, then the Raft tool. I prefer to use the Pixellate raft as it seems to use the least amount of material. Default settings are ideal.
+
+![./Images/Support_Raft.png](./Images/Support_Raft.png)
+
+Next go to the hollowing tool. Your model may have large bodies and hollowing them allows you to save a lot of resin. Getting this setup is pretty straightforward. First click the Hollow tool and start by adding a hole. This hole allows unused resin to drain back out into the vat. Having this faced downward on a models ugly / unseen surface is ideal. Just click on the model to add a hole, use control + z to undo. I use a 5mm diameter and 5mm penetration to make things easy. Just make sure the penetration doesn't go all of the way through your model.
+
+After that navigate to the Hollowing 2D tab in the same tool. Turn it on. You will see a preview of what the hollow cavities will look like. I have found that a 2.5mm wall thickness and 20% infill pattern provides plenty of internal support. I haven't placed any images here because the model I have at hand is thin enough to not require hollowing.
+
+From this point it is time to set up the supports. Click on the Support tool. In the dialog select the Light preset. Anything above that causes supports to be difficult to remove. In the section slightly below click the down arrow on 'Generate Automatic Supports' and select 'Supports on Ground Only'. This will generate and optimize model supports. Typically you only need supports on ground but sometimes you may just choose to 'Generate Automatic Supports' which will just generate additional supports to remove.
+
+![./Images/Support.png](./Images/Support.png)
+
+There are a few things to note here. The first thing is the Layer Preview slider on the right hand side of the screen. This allows you to see all of the slices and ensure each section of the model is appropriately supported. What that means is there should be no overhang greater than 45 degrees and the supports should build up to each island of the model so the entire model is always lifted by the build plate.
+
+It is likely that automatic support generation may have added a few unneeded supports here or there. Those can be cleaned up in this tool by selecting the support and using the delete key on your keyboard. Inversely they may be added back by simply clicking on a region to support in the model. More advanced specifics can be found on YouTube by searching 'Supporting Models in Lychee' or something similar.
+
+At this point you are ready to export your model with the optimal printer settings, load it onto your USB stick, and start printing! All other models will follow this pattern and you will find each step to become more natural with additional practice.
+
+### Modeling
+
+Getting into creating your own models is an entirely different can of worms. I would recommend that you print models that are made by others until you are comfortable with everything above. Many models offered by creators also come pre-arranged/supported so all you have to do is slice them!
+
+When you're ready to take the next steps there are two primary schools of modeling. Parametric and Mesh.
+
+#### Parametric
+
+For this you will need to learn Fusion 360. There is also a newer product called OnShape but, to be honest, I haven't used it yet. I've been using the hobbyist level of Fusion for years so I haven't found the need to migrate.
+
+In Parametric you extrude or revolve shapes with specific dimensions off of a 2d plane or axis. This allows you to create parts with extremely specific dimensions and is primarily useful for creating functional parts. You wouldn't use this to sculpt minis but instead to create storage containers, replacement parts, etc. Then those parts are exported as `.stl` before being imported into Lychee.
+
+Here is a tutorial that should cover all of the basics to get you up and running. [link](https://www.youtube.com/watch?v=D0TYcB-2_8o)
+
+- Note: Personally I have not watched it but looking at the timeline it seems to cover quite a bit.
+
+#### Mesh
+
+Blender is the appropriate application to use for Mesh modeling. It struggles to make parts with precise dimensions. Here you are molding a mesh of n-gons to make any shape you can imagine. Beyond mesh editing this program introduces sculpting which can be used to mold the mesh and add fine detail, as if you were sculpting digital clay. Like the above you can export the model as an `.stl` and import it into Lychee for slicing.
+
+The most well-known tutorial for Blender is the donut tutorial. Here is a link for that. [link](https://www.youtube.com/watch?v=nIoXOplUvAw&list=PLjEaoINr3zgFX8ZsChQVQsuDSjEqdWMAD)
+
+The particular section's you'll want to pay attention to are Editing, Modifiers, Modeling, and Sculpting. Rendering, Texturing, etc is for when you want to make photorealistic renders ( images ) of your object or get into movie creation ( like animated pixar films ).
