@@ -2,7 +2,7 @@
 
 This is a complete guide for everything you need to know for resin printing. Most of it is based on memory so my apologies if something critical is missing. This may look like a lot of information, because it is... but just know that I did not learn this in one day. It took me many weeks of experimenting to understand the nuances related to resin printing. I have a ton of experience with 3d modeling programs and slicers so this sped up the learning curve. I'm hoping relaying some of this knowledge will do the same for you and make resin printing a more enjoyable experience.
 
-### Modeling Software
+## Modeling Software
 
 Download, install, create accounts for all of these things. Lychee and Blender will probably be the most important software but Fusion also comes in really handy when you decide to make mechanical parts.
 
@@ -18,7 +18,7 @@ Download, install, create accounts for all of these things. Lychee and Blender w
     - This program is for 'parametric modeling' where you explicitly define each dimension of your model.
     - Commonly used for engineering precise parts and doesn't do well with more organic shapes.
 
-### Tools
+## Tools
 
 To make your life easier there's an array of accessories I'd recommend. Believe it or not there is a use for all of them.
 
@@ -63,7 +63,7 @@ To make your life easier there's an array of accessories I'd recommend. Believe 
 - [Heat Gun](https://www.amazon.com/TDAGRO-Temperature-Settings-Cordless-Protection/dp/B0BHL8YZTT/ref=sr_1_5?crid=ZU6DBZWD3KUZ&keywords=heat%2Bgun&qid=1693065158&sprefix=heat%2Bgun%2Caps%2C181&sr=8-5&th=1)
     - Useful for drying parts after the wash.
 
-### Safety
+## Safety
 
 If you don't pay attention to anything else in this guide, please pay attention to this. Safety is key when working with resin. Almost everything about the printing, washing, and curing processes are toxic in some way. Ventilation and extraction are key. There are several ways to complete this. Probably the best one I've seen, although it is a bit extreme, is to set up everything inside of a grow tent. Then get a grow tent fan to extract the air out the window. This creates a fume hood of sorts. Your printer, washing station, and curing station would have to be inside of this tent so the setup can be quite large.
 
@@ -83,11 +83,11 @@ As a side note, a lot of people use disposable nitrile gloves but they are not a
 
 Finally, always wash your hands when you are finished working with these materials.
 
-### Resins
+## Resins
 
 There are several kinds of resins and many different brands, colors, etc. Good brands include Siraya Tech, AnyCubic, and Elegoo. I'll cover a few types here. Keep in mind that a more advanced setup may include blending multiple different resins to get the desired characteristics. ( brittle vs flexible for example ). Also keep in mind that different colors will have different cure times and the printing characteristics can slightly change those times. It is important to calibrate your settings to match the resin you are using. More on that later.
 
-#### Recommended
+### Recommended
 
 - [Standard Resin](https://www.amazon.com/ANYCUBIC-UV-Curing-Precision-Excellent-Fluidity/dp/B07G3663HD/ref=sr_1_4?crid=2OPAVJ1AJUDC&keywords=3d+printing+resin&qid=1693064533&sprefix=3d+printing+resin%2Caps%2C133&sr=8-4)
     - This type is the defacto standard and probably the best starting point.
@@ -101,7 +101,7 @@ There are several kinds of resins and many different brands, colors, etc. Good b
     - For that reason I still like to wash this in alcohol.
     - Do not wash this in the sink. Just because it is water washable does not make it safer than Standard Resin.
 
-#### Supplemental
+### Supplemental
 
 - [ABS Like](https://www.amazon.com/ABS-Like-Curing-Non-Brittle-Printing-Resin/dp/B07WFJ53LP/ref=sr_1_3_pp?crid=N7CNFJL1ZMEI&keywords=abs+like+resin&qid=1693065469&sprefix=abs+like+resin%2Caps%2C118&sr=8-3)
     - This resin is usually a bit more expensive but is also much stronger than Standard Resins.
@@ -116,11 +116,11 @@ There are several kinds of resins and many different brands, colors, etc. Good b
     - Although it is expensive, this type of resin maintains flexibility after it's cured. Almost like printing with rubber instead of plastic.
     - It can be mixed with other resins to form a custom polymer with limited flexibility. ( advanced )
 
-#### Colors
+### Colors
 
 Since this resin is cured by UV light you must consider how much light passes through any given color. For instance, a clear resin will allow a lot of light to pass. This means that you have to adjust your layer exposure time, or that detail may be lost due to extra light passing through. Black would be the total opposite. If you plan on painting your prints, just use grey because it really provides the best of all worlds.
 
-### Printer Setup
+## Printer Setup
 
 The most important part of printer setup is leveling your build plate. It sets the distance for the first level and provides plate adhesion when printing your burn in layers. Typically you only need to do this once and it is a fairly simple process. I normally leave my printer on and may repeat the process after a power outage if I think the first level alignment is out.
 
@@ -140,7 +140,7 @@ The most important part of printer setup is leveling your build plate. It sets t
 
 This should do a few things. First it should level your build plate inline with the screen plane. This provides even light exposure and bed / layer adhesion. Secondly it should set the zero distance for the first layer. This distance is roughly the thickness of a piece of paper. Finally it should mean that your home distance is a few mm above your zero distance. This helps prevent the homing operation from squishing the screen and provides a small layer of protection against cracking it.
 
-### Pre Printing Setup
+## Pre Printing Setup
 
 I'll cover this first because you will end up leaving a good amount of resin in the vat. It's very tedious to clean it all out every time you are finished using your printer.
 
@@ -153,7 +153,7 @@ There is an alternative technique you can use here. After giving the resin a goo
 
 It's generally best to keep your vat about half to three quarters full. Avoid filling it up to the max line because things can get messy. You can always slowly pour a bit of resin in there mid print if needed.
 
-### Post Print Cleanup
+## Post Print Cleanup
 
 Since there isn't much to printing other than pressing start, I'll skip to this. We'll come back to setting up a print later because that's where all of the detail is. I just want you to get a understanding how to physically operate the printer before diving into the software aspect. 
 
@@ -185,7 +185,7 @@ As you clean parts your dirty wash will become saturated and eventually will sto
 
 Additionally, if you know you won't be printing for a while, you may want to filter the resin out of the vat and back into the bottle. Then use glass cleaner and paper towel to clean your vat and build plate. When doing this make sure everything is as clean as you can possibly get it. You may consider using some [Rain X](https://www.amazon.com/Rain-X-800002250-Glass-Treatment-Trigger/dp/B000BVRZ74/ref=sr_1_1?keywords=Rain-X&qid=1693071053&sr=8-1) spray on the fep as a last step which prevents anything from sticking to it.
 
-### File Formats
+## File Formats
 
 Before we really get into it we should cover file formats. Typically when you think of file formats you may think of `.pdf` or `.jpg`. 3d modeling programs have their own file formats for specific use cases. Different formats are used at each stage of the operation.
 
@@ -200,7 +200,7 @@ Before we really get into it we should cover file formats. Typically when you th
 - `.pwmx` 
     - This is the final file format which is exported from a Lychee workspace and will make its way onto your USB stick to be selected for printing.
 
-### Resin Calibration
+## Resin Calibration
 
 Ok, with all of that out of the way we can start to talk about calibrating your resin. This involves everything above plus setting up your first prints and getting familiar with the slicer. Keep in mind exposure settings are not only color, resin type dependent, but temperature dependent as well. The ambient temperature of your environment will dictate exposure times. You will find that in colder weather ( < 70F ) a bit of time will need to be added as the resin is more viscous and takes longer to cure.
 
@@ -230,21 +230,21 @@ Printer / Resin Management Dialog
 
 At this point configure your resin settings with the same ones I am using above. I have found this to be very reasonable for grey resin. Let's go over this one by one.
 
-#### Burn In Layers
+### Burn In Layers
 
 This is how many layers your printer will use to 'burn' the first layers to the build plate. The extra time here ensures there is a strong bond between the resin and build plate.
 
 Number of Layers: 4
 Exposure Time: 45 seconds
 
-#### Speed
+### Speed
 
 After each layer the bed will left / retract at at this speed. Lift Speed is the speed that the plate will raise and Retract Speed will control how fast it will lower.
 
 Lift Speed: 1 mm/s
 Retract Speed: 3mm/s
 
-#### Normal Layers
+### Normal Layers
 
 This is where the difference happens. Most adjustments you make will be here.
 
@@ -263,15 +263,15 @@ Set your resin price, for cost estimates, and everything else here is really opt
 
 Click Ok / X to get back to the Export preview and select "Export Slices to file" which will prepare your model. While you're here go ahead and export several different exposure times and save them all to your USB Stick. Then go print and clean each one! This gives you plenty of practice before wasting resources on larger prints.
 
-#### Results
+### Results
 
 Mark and closely compare each print to understand which exposure times are best for your environment. Holes should be correctly sized, all lines should be crisp and clean. You should be able to see the finest details. Split the quarters as necessary and keep at it until you're happy with the result. The better this calibration print is the better all of your prints will be!
 
-### Arranging and Supporting
+## Arranging and Supporting
 
 In the calibration above we skipped over some of the most important steps of slicing any 3d model. Arranging and Supporting. Models will be arranged in the 'Layout' tab of Lychee which you have some experience with at this point. Here we will cover more detail and also cover the 'Prepare' tab.
 
-#### Arrange
+### Arrange
 
 In this tab you will orient the model on the build plate to prepare for the next steps. Always align your model centered with the build plate. If you select your model and click the Arrange tool, you will see a button to Arrange All. This does the job of arranging one or more models around the center of the build plate.
 
@@ -291,7 +291,7 @@ Top
 Perspective
 ![./Images/Perspective.png](./Images/Perspective.png)
 
-#### Prepare
+### Prepare
 
 Moving to the 'Prepare' tab we can start to set up rafts, hollowing, and support. First you will note the yellow areas which need to be supported.
 
@@ -317,13 +317,13 @@ It is likely that automatic support generation may have added a few unneeded sup
 
 At this point you are ready to export your model with the optimal printer settings, load it onto your USB stick, and start printing! All other models will follow this pattern and you will find each step to become more natural with additional practice.
 
-### Modeling
+## Modeling
 
 Getting into creating your own models is an entirely different can of worms. I would recommend that you print models that are made by others until you are comfortable with everything above. Many models offered by creators also come pre-arranged/supported so all you have to do is slice them!
 
 When you're ready to take the next steps there are two primary schools of modeling. Parametric and Mesh.
 
-#### Parametric
+### Parametric
 
 For this you will need to learn Fusion 360. There is also a newer product called OnShape but, to be honest, I haven't used it yet. I've been using the hobbyist level of Fusion for years so I haven't found the need to migrate.
 
@@ -333,7 +333,7 @@ Here is a tutorial that should cover all of the basics to get you up and running
 
 - Note: Personally I have not watched it but looking at the timeline it seems to cover quite a bit.
 
-#### Mesh
+### Mesh
 
 Blender is the appropriate application to use for Mesh modeling. It struggles to make parts with precise dimensions. Here you are molding a mesh of n-gons to make any shape you can imagine. Beyond mesh editing this program introduces sculpting which can be used to mold the mesh and add fine detail, as if you were sculpting digital clay. Like the above you can export the model as an `.stl` and import it into Lychee for slicing.
 
